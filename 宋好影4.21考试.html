@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./jquery.js"></script>
+    <title>Document</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        background-color: rgb(243, 243, 243);
+      }
+      tr {
+        height: 50px;
+      }
+      thead tr {
+        background-color: rgb(234, 234, 234);
+      }
+      select {
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        background-color: beige;
+        color: chocolate;
+      }
+      #add-btn {
+        background-color: beige;
+        border: none;
+        color: rgb(130, 208, 208);
+        
+      }
+
+      ssh-keygen -t ed25519 -C "hying"  
+# Generating public/private ed25519 key pair...
+
+
+      form {
+        width: 300px;
+        height: 320px;
+        background-color: pink;
+        text-align: center;
+        padding-top: 10px;
+        margin: auto;
+        display: none;
+        position: absolute;
+        top: 30%;
+        left: 40%;
+        border-radius: 15px;
+      }
+      body {
+        position: relative;
+      }
+      #suo {
+        background-color: aquamarine;
+        border: none;
+      }
+      #sou {
+        height: 20px;
+      }
+      #sear {
+        margin: 10px;
+        float: right;
+      }
+      #sc {
+        background-color: rgb(172, 240, 255);
+        color: red;
+        border: none;
+        width: 45px;
+        height: 40px;
+        border-radius: 10px;
+      }
+      #xg {
+        background-color: rgb(143, 221, 245);
+        color: white;
+        border: none;
+        width: 45px;
+        height: 35px;
+        border-radius: 10px;
+      }
+      #look {
+        background-color: rgb(170, 245, 245);
+        color: white;
+        border: none;
+        width: 45px;
+        height: 40px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <select name="" id="color-select">
+      <option value="">请选择颜色</option>
+      <option value="#FFFFFF">浅色</option>
+      <option value="#CCCCCC">深色</option>
+    </select>
+
+    <button id="add-btn">添加歌曲</button>
+    <div id="sear">
+      <input type="text" name="" id="sou" placeholder="请输入搜索的歌曲" />
+      <input type="submit" name="" onclick="souBtn()" />
+    </div>
+    <form action="#">
+      <h3 id="hh">添加歌曲</h3>
+      歌曲名称：<input type="text" name="" id="title" /><br /><br />
+      艺&nbsp术&nbsp家：<input type="text" name="" id="artist" /><br /><br />
+      专辑名称：<input type="text" name="" id="album" /><br /><br />
+      年&nbsp&nbsp&nbsp代:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input
+        type="number"
+        name=""
+        id="year"
+      /><br /><br />
+      类&nbsp&nbsp&nbsp型：<input type="text" name="" id="genre" /><br /><br />
+      <input type="submit" name="" id="_add" />
+    </form>
+    <table border="1">
+      <thead>
+        <tr>
+          <th><input type="checkbox" name="" id="" /> ID</th>
+          <th>标题</th>
+          <th>艺术家</th>
+          <th>影集</th>
+          <th>年份</th>
+          <th>类型</th>
+          <th>长度</th>
+          <th>创建时间</th>
+          <th>更新时间</th>
+          <th>图像链接</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      const h3title = document.getElementById("hh");
+      (function () {
+        from();
+      })();
+
+      //本地存储切换
+      $(document).ready(function () {
+        var color = localStorage.getItem("background-color");
+        if (color) {
+          $("body").css("background-color", color);
+          $("#color-select").val(color);
+        }
+        $("#color-select").change(function () {
+          var selectedColor = $(this).val();
+          $("body").css("background-color", selectedColor);
+          localStorage.setItem("background-color", selectedColor);
+        });
+      });
+      //修改
+      $("table").on("click", "#xg", function () {
+        event.preventDefault();
+        $("form").css("display", "block");
+        h3title.innerHTML = "修改歌曲";
+        var title = $("#title").val();
+        var artist = $("#artist").val();
+        var album = $("#album").val();
+        var year = $("#year").val();
+        var genre = $("#genre").val();
+        var rowData = $(this).closest("tr").data("song");
+        var id = $(this).attr("data-id");
+        $.ajax({
+          type: "put",
+          url: "http://81.68.107.245/api/songs/{id}",
+          dataType: "json",
+          data: {
+            title: title,
+            artist: artist,
+            album: album,
+            year: year,
+            genre: genre,
+          },
+          success: function (res) {
+            if (res.code == 0) {
+              from(res);
+            }
+          },
+        });
+      });
+      
+      //查看
+      $("table").on("click", '#look', function () {
+      event.preventDefault();
+      $("form").css('display', 'block')
+      h3title.innerHTML = "查看歌曲";
+   })
+   $("tbody").on("click", chakanFun);
+   function chakanFun(data) {
+    event.preventDefault();
+    let id = event.target.dataset.id;
+    if (data.target.innerHTML == "查看") {
+      $.ajax({
+       type: "get",
+       url: "http://81.68.107.245/api/songs/" + id,
+       dataType: "json",
+       success: function (data) {
+        console.log(data);
+        if (data.code == "200") {
+          $("form input").eq(0).val(data.data.title)
+          $("form input").eq(1).val(data.data.artist)
+          $("form input").eq(2).val(data.data.album)
+          $("form input").eq(3).val(data.data.year)
+          $("form input").eq(4).val(data.data.genre)
+        } else {
+         console.log(data);
+        }
+       
+       },
+       
+      });
+     }
+    }
+      //添加
+      $("#add-btn").on("click", function () {
+        $("form").css("display", "block");
+        h3title.innerHTML = "添加歌曲";
+      });
+      $("#_add").on("click", function () {
+        event.preventDefault();
+        var title = $("#title").val();
+        var artist = $("#artist").val();
+        var album = $("#album").val();
+        var year = $("#year").val();
+        var genre = $("#genre").val();
+        $("form").css("display", "none");
+        $.ajax({
+          url: "http://81.68.107.245/api/songs",
+          type: "POST",
+          dataType: "json",
+          headers: { "Content-Type": "application/json" },
+          data: JSON.stringify({
+            title: title,
+            artist: artist,
+            album: album,
+            year: year,
+            genre: genre,
+          }),
+          success: function (res) {
+            if (res.code == 201) {
+              console.log("123");
+              from(res);
+            } else {
+              console.log(res);
+            }
+          },
+        });
+      });
+      // $(document).ready(function () {
+        //全选
+      //   $("#select-all").click(function () {
+      //     $('td input[type="checkbox"]').prop(
+      //       "checked",
+      //       $("#select-all").prop("checked")
+      //     );
+      //   });
+      // });
+      //删除
+      $("table").on("click", "#sc", function () {
+        var id = $(this).attr("data-id");
+        if (confirm("确定删除吗？")) {
+          $.ajax({
+            type: "DELETE",
+            url: "http://81.68.107.245/api/songs/" + id,
+            dataType: "json",
+            success: function (data) {
+              from();
+            },
+          });
+        }
+      });
+      function from() {
+        $.ajax({
+          type: "get",
+          url: "http://81.68.107.245/api/songs",
+          dataType: "json",
+          data: {
+            page: 1,
+            pageSize: 10,
+          },
+          success: function (data) {
+            console.log(data);
+            tab(data);
+          },
+        });
+      }
+
+      function tab(data) {
+        let html = "";
+        data.data.forEach((item, index) => {
+          html += `<tr>
+          <td>${item.id}<input type="checkbox" name="" id=""></td>
+                <td>${item.title}</td>
+                <td>${item.artist}</td>
+                <td>${item.album}</td>
+                <td>${item.year}</td>
+                <td>${item.genre}</td>
+                <td>${item.length}</td>
+                <td>${item.created_at}</td>
+                <td>${item.updated_at}</td>
+                <td><img src="${item.image_url}"></td>
+                <td> 
+                    <button id="sc"  data-id="${item.id}">删除</button>
+                    <button id="xg">修改</button>
+                    <button id="look"  data-id="${item.id}">查看</button>
+                    </td>
+                </tr>`;
+        });
+        //搜索
+        $("tbody").html(html);
+      }
+
+      function souBtn() {
+        let souText = $("#sou").val();
+        $.ajax({
+          type: "GET",
+          url: `http://81.68.107.245/api/songs/` + souText,
+          dataType: "json",
+          success: function (res) {
+            console.log(res.data);
+            var souArr = [];
+            souArr.push(res.data);
+            var htmlSou = "";
+            souArr.forEach((item, index) => {
+              htmlSou += `<tr>
+                      <td>${item.id}<input type="checkbox" name="" id=""></td>
+                      <td>${item.title}</td>
+                      <td>${item.artist}</td>
+                      <td>${item.album}</td>
+                      <td>${item.year}</td>
+                      <td>${item.genre}</td>
+                      <td>${item.length}</td>
+                      <td>${item.created_at}</td>
+                      <td>${item.updated_at}</td>
+                      <td><img src="${item.image_url}"></td>
+                      <td> 
+                          <button id="sc"  data-id="${item.id}">删除</button>
+                          <button id="xg"  data-id="${item.id}">修改</button>
+                          <button id="look"  data-id="${item.id}">查看</button>
+                        </td>
+                </tr>`;
+            });
+            $("tbody").html(htmlSou);
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
