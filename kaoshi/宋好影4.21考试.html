@@ -166,7 +166,7 @@
         var id = $(this).attr("data-id");
         $.ajax({
           type: "put",
-          url: "http://81.68.107.245/api/songs/{id}",
+          url: "https://mp3.zzgoodqc.cn/songs/{id}",
           dataType: "json",
           data: {
             title: title,
@@ -196,7 +196,7 @@
     if (data.target.innerHTML == "查看") {
       $.ajax({
        type: "get",
-       url: "http://81.68.107.245/api/songs/" + id,
+       url: "https://mp3.zzgoodqc.cn/api/songs/" + id,
        dataType: "json",
        success: function (data) {
         console.log(data);
@@ -229,7 +229,7 @@
         var genre = $("#genre").val();
         $("form").css("display", "none");
         $.ajax({
-          url: "http://81.68.107.245/api/songs",
+          url: "https://mp3.zzgoodqc.cn/api/songs",
           type: "POST",
           dataType: "json",
           headers: { "Content-Type": "application/json" },
@@ -265,7 +265,7 @@
         if (confirm("确定删除吗？")) {
           $.ajax({
             type: "DELETE",
-            url: "http://81.68.107.245/api/songs/" + id,
+            url: "https://mp3.zzgoodqc.cn/api/songs/" + id,
             dataType: "json",
             success: function (data) {
               from();
@@ -318,7 +318,7 @@
         let souText = $("#sou").val();
         $.ajax({
           type: "GET",
-          url: `http://81.68.107.245/api/songs/` + souText,
+          url: `https://mp3.zzgoodqc.cn/songs/` + souText,
           dataType: "json",
           success: function (res) {
             console.log(res.data);
