@@ -318,7 +318,7 @@
         let souText = $("#sou").val();
         $.ajax({
           type: "GET",
-          url: `https://mp3.zzgoodqc.cn/songs/` + souText,
+          url: `https://mp3.zzgoodqc.cn/api/songs/` + souText,
           dataType: "json",
           success: function (res) {
             console.log(res.data);
