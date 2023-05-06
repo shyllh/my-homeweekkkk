@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+</head>
+<style>
+    #main{
+        width: 600px;
+        height: 400px;
+    }
+</style>
+<body>
+    <div id="main"></div>
+    <script>
+var chartDom = document.getElementById('main');
+var myChart = echarts.init(chartDom);
+var option;
+
+option = {
+  xAxis: {
+    type: 'category',
+    data: ['2023-04-30', '2023-05-01', '2023-05-02', '2023-05-03', '2023-05-04', '2023-05-06',],
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+        data: [280,250, 230,630, 260, 300,200],
+      type: 'line',
+      smooth: true
+    },{
+      data: [44,28, 60,30, 20, 30,20],
+      type: 'line',
+      smooth: true
+    },
+  ]
+};
+
+option && myChart.setOption(option);
+</script>
+</body>
+</html>

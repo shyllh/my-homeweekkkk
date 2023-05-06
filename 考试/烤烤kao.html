@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <title>Document</title>
+    <style>
+       li{
+        float: left;
+       margin-left: 10px;
+        list-style: none;
+        width: 60px;
+        height: 30px;
+        background-color: rgb(119, 214, 252);
+        text-align: center;
+        line-height: 30px;
+        border-radius: 10px;
+       }
+       a{
+        text-decoration: none;
+        color: black;
+       }
+       #box{
+        width: 200px;
+        height: 300px;
+        display: inline-block;
+        position: absolute;
+        margin-top: 10%;
+        left: 13%;
+       display: none;
+       }
+       #box3{
+        width: 200px;
+        height: 300px;
+        display: inline-block;
+        position: absolute;
+        margin-top: 10%;
+        left: 13%;
+        display: none;
+       }
+       #box6{
+        width: 200px;
+        height: 300px;
+        display: inline-block;
+        position: absolute;
+        margin-top: 10%;
+        left: 13%;
+       display: none;
+       }
+       #box9{
+        width: 200px;
+        height: 300px;
+        display: inline-block;
+        position: absolute;
+        margin-top: 10%;
+        left: 13%;
+       
+       }
+       #box b{
+        font-size: 25px;
+       }
+       #box2{
+        width: 200px;
+        height: 100px;
+        display: inline-block;
+        position: absolute;
+        top: 45%;
+        left: 10%;
+        text-align: center;
+        line-height: 50px;
+        background-color: azure;
+        border-radius: 20px;
+       }
+       #box5{
+        width: 200px;
+        height: 100px;
+        display: inline-block;
+        position: absolute;
+        top: 45%;
+        left: 10%;
+        text-align: center;
+        line-height: 50px;
+        background-color: azure;
+        border-radius: 20px;
+       }
+       #box8{
+        width: 200px;
+        height: 100px;
+        display: inline-block;
+        position: absolute;
+        top: 45%;
+        left: 10%;
+        text-align: center;
+        line-height: 50px;
+        background-color: azure;
+        border-radius: 20px;
+       }
+       #box02{
+        width: 200px;
+        height: 100px;
+        display: inline-block;
+        position: absolute;
+        top: 45%;
+        left: 10%;
+        text-align: center;
+        line-height: 50px;
+        background-color: azure;
+        border-radius: 20px;
+       }
+      #box2{
+        width: 200px;
+        height: 100px;
+        display: inline-block;
+        position: absolute;
+        
+        left: 10%;
+        text-align: center;
+        line-height: 50px;
+        background-color: azure;
+        border-radius: 20px;
+      }
+      #box1{
+        width: 200px;
+        height: 100px;
+        display: inline-block;
+        position: absolute;
+        
+        left: 10%;
+        text-align: center;
+        line-height: 50px;
+        background-color: azure;
+        border-radius: 20px;
+      }
+      #box4{
+        width: 200px;
+        height: 100px;
+        display: inline-block;
+        position: absolute;
+        
+        left: 10%;
+        text-align: center;
+        line-height: 50px;
+        background-color: azure;
+        border-radius: 20px;
+      }
+      
+      #box7{
+        width: 200px;
+        height: 100px;
+        display: inline-block;
+        position: absolute;
+        
+        left: 10%;
+        text-align: center;
+        line-height: 50px;
+        background-color: azure;
+        border-radius: 20px;
+      }
+      #box01{
+        width: 200px;
+        height: 100px;
+        display: inline-block;
+        position: absolute;
+        
+        left: 10%;
+        text-align: center;
+        line-height: 50px;
+        background-color: azure;
+        border-radius: 20px;
+      }
+       #box2 b{
+        font-size: 25px;
+       }
+
+       ul{
+        position: absolute;
+        left:45%;
+        top: 5%;
+       }
+       iframe{
+        position: absolute;
+        left: 30%;
+        top: 10%;
+       }
+    </style>
+</head>
+<body>
+    <div id="box">
+    <div id="box1">
+        PV(总浏览量)<br>
+        <b>195</b>
+        
+    </div>
+
+    <div id="box2">
+        UV(总访问量)<br>
+        <b>0</b>
+    </div>
+</div>
+<div id="box3">
+    <div id="box4">
+        PV(总浏览量)<br>
+        <b>305</b>
+        
+    </div>
+
+    <div id="box5">
+        UV(总访问量)<br>
+        <b>0</b>
+    </div>
+</div>
+<div id="box6">
+    <div id="box7">
+        PV(总浏览量)<br>
+        <b>2170</b>
+        
+    </div>
+
+    <div id="box8">
+        UV(总访问量)<br>
+        <b>118</b>
+    </div>
+</div>
+<div id="box9">
+    <div id="box01">
+        PV(总浏览量)<br>
+        <b>20302</b>
+        
+    </div>
+
+    <div id="box02">
+        UV(总访问量)<br>
+        <b>1056</b>
+    </div>
+</div>
+    
+    <ul class="" lay-filter="test">
+        <li onclick="jin()"  data-url="考试2.html">
+            <a class="" >今天</a>
+        </li>
+        <li onclick="zuo()"data-url="昨天.html">
+            <a href="javascript:;">昨天</a>
+        </li>
+        <li onclick="zhou()" data-url="近7日.html"><a href="javascript:;">近7日</a></li>
+        <li onclick="yue()" data-url="近30日.html"><a href="javascript:;">近30日</a>
+        </li>
+    </ul>
+    
+    <iframe id="ifrm" style="width:800px; height: 700px;margin: auto;" src="考试2.html"
+                frameborder="0"></iframe>
+    <script>
+$(function () {
+                //给li点击事件
+                $("li").click(liFun);
+            });
+            function liFun() {
+                let url = $(this).attr("data-url");
+                $("#ifrm").prop("src", url);
+            }
+            function jin(){
+                $('#box').css('display','block')
+            }
+            function zuo(){
+                $('#box3').css('display','block')
+                $('#box').css('display',"none")
+            }
+            function zhou(){
+                $('#box').css('display','block')
+                $('#box').css('display',"none")
+            }
+            function yue(){
+                $('#box').css('display',block)
+            }
+    </script>
+</body>
+</html>

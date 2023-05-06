@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <!-- Link Swiper's CSS -->
+	<link
+      rel="stylesheet"
+      href="../swiper-8.4.6/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <!-- Demo styles -->
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      body {
+        background: #000;
+        color: #000;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .swiper-slide {
+        background-size: cover;
+        background-position: center;
+        background-color: rgba(0,0,0,0.6);
+      }
+
+      .mySwiper2 {
+        height: 80%;
+        width: 100%;
+        float: left;
+      }
+      .mySwiper2 .swiper-slide img{
+        width: 70%;
+      }
+      .mySwiper {
+        height: 20%;
+        box-sizing: border-box;
+        padding: 10px 0;
+        margin-top: -211px;
+        
+      }
+
+      .mySwiper .swiper-slide {
+        width: 25%;
+        height: 100%;
+        opacity: 0.4;
+      }
+
+      .mySwiper .swiper-slide-thumb-active {
+        opacity: 1;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        left: 0;
+        text-align: center;
+      }
+	  #box{
+		width: 1300px;
+		height: 700px;
+		margin: auto;
+	  }
+	  b{
+		width: 200px;
+		background-color: rgba(0,0,0,0.6);
+		height: 560;
+		line-height: 560px;
+        float: right;
+	  }
+       a{
+        width: 100%;
+        height: 100%
+      }
+      .box1 {
+            width: 35%;
+            height: 60%;
+            position: absolute;
+            top: 5%;
+            left: 35%;
+            line-height: 100%;
+
+        }
+        li {
+            list-style: none;
+            display: inline-block;
+        }
+
+        .no li {
+            margin-left: 5%;
+        }
+        /* li a{
+            text-decoration: none;
+            color: #fff;
+        } */
+        #one,
+        #two,
+        #three,
+        #four,
+        #five,
+        #six {
+            position: relative;
+            
+        }
+     
+        #one::after{
+            height: 40%;
+            width: 30%;
+            position: absolute;
+            top: 2%;
+            left: 70%;
+            /* opacity: 0.8; */
+            font-size: 24px;
+            line-height: 50px;
+            font-weight: bold;
+            background-color: rgba(90, 90, 90,0.8);
+            content: "河流";
+            line-height: 180px;
+            color: #000;
+            line-height: 200px;
+        }
+           #two::after{
+            height: 40%;
+            width: 30%;
+            position: absolute;
+            top: 2%;
+            left: 70%;
+            /* opacity: 0.8; */
+            font-size: 24px;
+            line-height: 50px;
+            font-weight: bold;
+            background-color: rgba(90, 90, 90,0.8);
+            content: "湖面";
+            color: #000;
+            line-height: 180px;
+            line-height: 200px;
+        }
+       
+        #three::after{
+            height: 40%;
+            width: 30%;
+            position: absolute;
+            top: 2%;
+            left: 70%;
+            /* opacity: 0.8; */
+            font-size: 24px;
+            line-height: 50px;
+            font-weight: bold;
+            background-color: rgba(90, 90, 90,0.8);
+            content: "灯";
+            color: #000;
+            line-height: 180px;
+            line-height: 200px;
+        }
+         #four::after{
+            height: 40%;
+            width: 30%;
+            position: absolute;
+            top: 2%;
+            left: 70%;
+            /* opacity: 0.8; */
+            font-size: 24px;
+            line-height: 50px;
+            font-weight: bold;
+            background-color: rgba(90, 90, 90,0.8);
+            content: "山峦";
+            color: #000;
+            line-height: 180px;
+            line-height: 200px;
+        }
+        
+        #five::after {
+            height: 40%;
+            width: 30%;
+            position: absolute;
+            top: 2%;
+            left: 70%;
+            /* opacity: 0.8; */
+            font-size: 24px;
+            line-height: 50px;
+            font-weight: bold;
+            background-color: rgba(90, 90, 90,0.8);
+            content: "寨子";
+            color: #000;
+            line-height: 200px;
+        }
+        #six::after {
+            height: 40%;
+            width: 30%;
+            position: absolute;
+            top: 2%;
+            left: 70%;
+            /* opacity: 0.8; */
+            font-size: 24px;
+            line-height: 50px;
+            font-weight: bold;
+            background-color: rgba(90, 90, 90,0.8);
+            content: "虚拟世界";
+            color: #000;
+            line-height: 200px;
+        }
+        #seven::after {
+            height: 40%;
+            width: 30%;
+            position: absolute;
+            top: 2%;
+            left: 70%;
+            /* opacity: 0.8; */
+            font-size: 24px;
+            line-height: 50px;
+            font-weight: bold;
+            background-color: rgba(90, 90, 90,0.8);
+            content: "天空";
+            color: #000;
+            line-height: 200px;
+        }
+        #eight::after {
+            height: 40%;
+            width: 30%;
+            position: absolute;
+            top: 2%;
+            left: 70%;
+            /* opacity: 0.8; */
+            font-size: 24px;
+            line-height: 50px;
+            font-weight: bold;
+            background-color: rgba(90, 90, 90,0.8);
+            content: "树林";
+            color: #000;
+            line-height: 200px;
+        }
+        #box2::after{
+            content: '河流';
+            font-size: 24px;
+            font-weight: bolid;
+            float: left;
+            font-size: 19px;
+            color: white;
+            position: absolute;
+            top: 76%;
+            left: 35%;
+            transform: translate((-50%,-50%));
+        }
+        #box3::after{
+            content: '湖面';
+            font-size: 24px;
+            font-weight: bolid;
+            float: left;
+            font-size: 19px;
+            color: white;
+            position: absolute;
+            top: 76%;
+            left: 35%;
+            transform: translate((-50%,-50%));
+        }
+        #box4::after{
+            content: '灯';
+            font-size: 24px;
+            font-weight: bolid;
+            float: left;
+            font-size: 19px;
+            color: white;
+            position: absolute;
+            top: 76%;
+            left: 35%;
+            transform: translate((-50%,-50%));
+        }
+        #box5::after{
+            content: '山峦';
+            font-size: 24px;
+            font-weight: bolid;
+            float: left;
+            font-size: 19px;
+            color: white;
+            position: absolute;
+            top: 76%;
+            left: 35%;
+            transform: translate((-50%,-50%));
+        }
+        #box6::after{
+            content: '寨子';
+            font-size: 24px;
+            font-weight: bolid;
+            float: left;
+            font-size: 19px;
+            color: white;
+            position: absolute;
+            top: 76%;
+            left: 35%;
+            transform: translate((-50%,-50%));
+        }
+        #box7::after{
+            content: '虚拟世界';
+            font-size: 24px;
+            font-weight: bolid;
+            float: left;
+            font-size: 19px;
+            color: white;
+            position: absolute;
+            top: 76%;
+            left: 35%;
+            transform: translate((-50%,-50%));
+        }
+        #box8::after{
+            content: '天空';
+            font-size: 24px;
+            font-weight: bolid;
+            float: left;
+            font-size: 19px;
+            color: white;
+            position: absolute;
+            top: 76%;
+            left: 35%;
+            transform: translate((-50%,-50%));
+        }
+        #box9::after{
+            content: '树林';
+            font-size: 24px;
+            font-weight: bolid;
+            float: left;
+            font-size: 19px;
+            color: white;
+            position: absolute;
+            top: 76%;
+            left: 35%;
+            transform: translate((-50%,-50%));
+        }
+        .swiper-button-next{
+            position: absolute;
+            left: 65%;
+        }
+        .swiper-button-prev{
+            position: absolute;
+            left: 3%;
+            display: none;
+        }
+        a{
+            color: #fff;
+        }
+    </style>
+  </head>
+
+  <body>
+    <!-- Swiper -->
+	<div id="box">
+    <div
+      style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+      class="swiper mySwiper2"
+    >
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" id="one">
+          <img src="https://w.wallhaven.cc/full/7p/wallhaven-7pjo9y.png" />
+		  
+        </div>
+        <div class="swiper-slide" id="two">
+          <img src="https://w.wallhaven.cc/full/p9/wallhaven-p9oxzj.jpg" />
+		  
+        </div>
+        <div class="swiper-slide" id="three">
+          <img src="https://w.wallhaven.cc/full/ex/wallhaven-ex392r.jpg" />
+		  
+        </div>
+        <div class="swiper-slide" id="four">
+          <img src="https://w.wallhaven.cc/full/qz/wallhaven-qzj9er.png" />
+		  
+        </div>
+        <div class="swiper-slide" id="five">
+          <img src="https://w.wallhaven.cc/full/5g/wallhaven-5gz6d3.png" />
+		  
+        </div>
+        <div class="swiper-slide" id="six">
+          <img src="https://w.wallhaven.cc/full/ex/wallhaven-ex8lol.png" />
+		  
+        </div>
+        <div class="swiper-slide" id="seven">
+          <img src="https://w.wallhaven.cc/full/l8/wallhaven-l8ydx2.jpg" />
+		  
+        </div>
+        <div class="swiper-slide" id="eight">
+          <img src="https://w.wallhaven.cc/full/gp/wallhaven-gpqypd.jpg" />
+		  
+        </div>
+      </div>
+      
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+    <div thumbsSlider="" class="swiper mySwiper3">
+        <div class="box1">
+            <ul class="no">
+                <li>
+                    <a href="#">视觉搜索</a>
+                </li>
+                <li>
+                    <a href="#" onclick="baocun()"data-index="${index}">保存</a>
+                </li>
+                <li>
+                    <a href="#">查看图片</a>
+                </li>
+                <li>
+                    <a href="#">反馈</a>
+                </li>
+                <li>
+                    <a href="#">...更多</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div thumbsSlider="" class="swiper mySwiper">
+      <div class="swiper-wrapper" id="">
+        <div class="swiper-slide" id="box2">
+          <img src="https://w.wallhaven.cc/full/7p/wallhaven-7pjo9y.png" />
+        </div>
+
+        <div class="swiper-slide"id="box3">
+          <img src="https://w.wallhaven.cc/full/p9/wallhaven-p9oxzj.jpg" />
+        </div>
+        <div class="swiper-slide"id="box4">
+          <img src="https://w.wallhaven.cc/full/ex/wallhaven-ex392r.jpg" />
+        </div>
+        <div class="swiper-slide"id="box5">
+          <img src="https://w.wallhaven.cc/full/qz/wallhaven-qzj9er.png" />
+        </div>
+        <div class="swiper-slide"id="box6">
+          <img src="https://w.wallhaven.cc/full/5g/wallhaven-5gz6d3.png" />
+        </div>
+        <div class="swiper-slide"id="box7">
+          <img src="https://w.wallhaven.cc/full/ex/wallhaven-ex8lol.png" />
+        </div>
+        <div class="swiper-slide"id="box8">
+          <img src="https://w.wallhaven.cc/full/l8/wallhaven-l8ydx2.jpg" />
+        </div>
+        <div class="swiper-slide"id="box9">
+          <img src="https://w.wallhaven.cc/full/gp/wallhaven-gpqypd.jpg" />
+        </div>
+      </div>
+    </div>
+</div>
+
+    <!-- Swiper JS -->
+	<script src="../swiper-8.4.6/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+      });
+      var swiper2 = new Swiper(".mySwiper2", {
+        spaceBetween: 10,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+          swiper: swiper,
+        },
+        on:{
+            slideChange:function(){
+                var lastIndex=this.slides.length-1;
+                if(this.activeIndex==lastIndex){
+                    $('.swiper-button-next').hide()
+                }else{
+                    $('.swiper-button-next').show()
+                }
+                if(this.activeIndex==0){
+                    $('.swiper-button-prev').hide()
+                }else{
+                    $('.swiper-button-prev').show()
+                }
+            }
+        }
+      });
+      function baocun(){
+        event.preventDefault()
+        console.log(data-index);
+      }
+    </script>
+  </body>
+</html>
