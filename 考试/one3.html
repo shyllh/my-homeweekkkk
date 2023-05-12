@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+</head>
+<body>
+    <style>
+          #main{
+        width: 430px;
+        height: 350px;
+    }
+    </style>
+     <div id="main"></div>
+     <script>
+ 
+ var chartDom = document.getElementById('main');
+ var myChart = echarts.init(chartDom);
+ var option;
+ 
+ option = {
+   xAxis: {
+     type: 'category',
+     data: ['2023-4-12', '2023-04-15', '2023-04-20', '2023-04-25', '2023-04-31', '2023-05-05',"2023-05-10"]
+   },
+   yAxis: {
+     type: 'value'
+   },
+   legend:{
+    data:['新增会员'],
+    left:330
+   },
+   series: [
+     {
+      name:"新增会员",
+       data: [88, 120, 10,60,30,30, 0, 5],
+       type: 'line',
+       smooth: true
+     }
+   ],
+ };
+ 
+ option && myChart.setOption(option);
+     </script>
+</body>
+</html>

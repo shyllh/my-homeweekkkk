@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div id="hedd">
+        <b>待办事项</b>
+        <div id="nav">
+            <div>
+               <b>待发货订单</b> 
+                <p>单位(笔)</p>
+                <h3 id="hh1">4</h3>
+            </div>
+            <div>
+               <b>待处理售后</b> 
+                <p>单位(笔)</p>
+                <h3 id="hh2" id="hh1">0</h3>
+            </div>
+            <div>
+               <b>待付款订单</b> 
+                <p>单位(笔)</p>
+                <h3 id="hh3">113</h3>
+            </div>
+            <div>
+              <b>待补货商品</b>  
+                <p>单位(笔)</p>
+                <h3 id="hh4">0</h3>
+            </div>
+            <div>
+               <b>待审核会员</b> 
+                <p>单位(笔)</p>
+                <h3 id="hh5">0</h3>
+            </div>
+            <div>
+               <b>待审核佣金</b> 
+                <p>单位(笔)</p>
+                <h3 id="hh6">948.19</h3>
+            </div>
+        </div>
+        <div id="cbig">
+            <div id="one">
+               <b style="float: left;"> 新增会员</b>
+               <ul class="" lay-filter="test">
+                <li data-url="one.html" class="lll">
+                    <a class="" >今天</a>
+                </li>
+                <li data-url="one1.html" class="lll">
+                    <a href="javascript:;">昨天</a>
+                </li>
+                <li  data-url="one2.html" class="lll"><a href="javascript:;">近7日</a></li>
+                <li data-url="one3.html" class="lll"><a href="javascript:;">近30日</a>
+                </li>
+            </ul>
+            
+            <iframe id="ifrm" style="width:450px; height: 400px;margin: 0 auto;" src="one.html"
+            frameborder="0"></iframe>
+        </div>
+        <div id="two">
+            <b style="float: left;"> 新增订单</b>
+            <ul class="" lay-filter="test1" >
+             <li  class="lll2" data-url="two.html">
+                 <a class="" >今天</a>
+             </li>
+             <li data-url="two1.html" class="lll2">
+                 <a href="javascript:;">昨天</a>
+             </li>
+             <li  data-url="two2.html" class="lll2"><a href="javascript:;">近7日</a></li>
+             <li  data-url="two3.html" class="lll2"><a href="javascript:;">近30日</a>
+             </li>
+         </ul>
+         
+         <iframe id="ifrm1" style="width:450px; height: 400px;margin: 0 auto;" src="two.html"
+         frameborder="0"></iframe>
+     </div>
+     </div>
+     <div id="cbig2">
+       <b style="margin-top: 2%; float: left;">运营数据</b> 
+       <div id="dat">
+        <div id="inp">
+         <input type="date" name="" id=""value="2023-05-12">
+         <input type="date" name="" id=""value="2023-05-12">
+        </div>
+       <ul class="" lay-filter="test">
+        <li  data-url="three.html" class="lll3">
+            <a class="" >今天</a>
+        </li>
+        <li data-url="three1.html" class="lll3">
+            <a href="javascript:;">昨天</a>
+        </li>
+        <li data-url="three2.html" class="lll3"><a href="javascript:;">近7日</a></li>
+        <li data-url="three3.html" class="lll3"><a href="javascript:;">近30日</a>
+        </li>
+    </ul>
+</div>
+        <div id="yuan">
+            <div>成交金额(元) <br>
+            <h3>796</h3>
+            <p>较昨日</p>
+            </div>
+            <div>退款金额(元) <br>
+                <h3>0</h3>
+                <p>较昨日</p></div>
+            <div>
+                成支付订单(笔) <br>
+            <h3>4</h3>
+            <p>较昨日</p>
+            </div>
+            <div>
+                支付人数(人) <br>
+            <h3>4</h3>
+            <p>转化率</p>
+            </div>
+            <div>
+                客单价(元) <br>
+            <h3>199</h3>
+            <p>较昨日</p>
+            </div>
+            <div>
+                笔单价(元) <br>
+            <h3>199</h3>
+            <p>较昨日</p>
+            </div>
+        </div>
+        
+        <iframe id="ifrm2" style="width:600px; height: 500px;margin: 0 auto;float: right;" src="three.html"
+        frameborder="0"></iframe>
+     </div>
+       <div id="lass"></div>
+    </div>
+    <script>
+       $(function () {
+                //给li点击事件
+                $(".lll").click(liFun);
+            });
+            function liFun() {
+                let url = $(this).attr("data-url");
+                $("#ifrm").prop("src", url);
+            }
+            
+
+            $(function () {
+                //给li点击事件
+                $(".lll2").click(fun);
+            });
+            function fun() {
+                let url1= $(this).attr("data-url");
+                $("#ifrm1").prop("src", url1);
+            }
+            
+            $(function () {
+                //给li点击事件
+                $(".lll3").click(lasst);
+            });
+            function lasst() {
+                let url2= $(this).attr("data-url");
+                $("#ifrm2").prop("src", url2);
+            }
+    </script>
+</body>
+</html>

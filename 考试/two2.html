@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+</head>
+<style>
+    #main{
+        width: 430px;
+        height: 350px;
+    }
+</style>
+<body>
+    <div id="main">
+
+    </div>
+    <script>
+            // import * as echarts from 'echarts';
+        
+          // 基于准备好的dom，初始化echarts实例
+          var myChart1 = echarts.init(document.getElementById('main'), 'purple-passion');
+          // 绘制图表
+          myChart1.setOption({
+            grid: {
+              top: 100
+            },
+            title: {
+              //调试标题的样式
+              textStyle: {
+                color: 'red',
+                fontSize: 30,
+                fontWeight: 'bold',
+              },
+              left: 'center'//标题居中显示
+              // show: false
+            },
+            tooltip: {},
+            legend: {
+              data: ['新增订单'],
+              left: 300
+            },
+            xAxis: {
+              //文字
+              data: ['2023-05-01', '2023-05-02', '2023-05-03', '2023-05-04', '2023-05-05', '2023-05-06',"2023-05-07"]
+            },
+            yAxis: {
+              type: 'value'
+            },
+            series: [
+              {
+                name: '新增订单',
+                type: 'bar',
+                //数量
+                data: [10, 15, 5,2,10,20, 3, 0],
+              },
+            ]
+          });
+          // myChart1.setOption(setOption);
+          </script>
+        
+    </script>
+</body>
+</html>

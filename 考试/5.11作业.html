@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+      #box {
+        width: 450px;
+        height: 450px;
+        border: 3px solid black;
+        border-radius: 20px;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+      }
+      #box div {
+        border: 3px solid black;
+        width: 120px;
+        height: 120px;
+        border-radius: 70px;
+      }
+      #btn {
+        width: 240px;
+        height: 50px;
+        margin: 0 auto;
+        border: 3px solid black;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 50px;
+      }
+      #head {
+        width: 300px;
+        height: 30px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      #sss1 {
+        width: 70px;
+        height: 30px;
+        float: right;
+      }
+      #sss2 {
+        width: 150px;
+        height: 30px;
+        float: left;
+      }
+      img {
+        width: 120px;
+        height: 120px;
+        border-radius: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="btn" onclick="fun()">开始游戏</div>
+      <div id="head">
+        <span id="sss2">倒计时:59s</span> <span id="sss1">得分:</span>
+      </div>
+      <div id="box">
+        <div><img src="./cat.png" alt="" /></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div><img src="./mouse.png" alt="" /></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <script>
+         var countdown = 60; // 60秒
+    var arr = []; // 随机数
+    var score = 0; // 分数
+    var seconds = 1000; // 时间
+    var timer; //  定时器
+
+    function fun() {
+      var decide = setTimeout(function () {
+        if (countdown === 0) {
+          countdown = 60;
+          score = 0;
+          arr.length = 0;
+          clearInterval(decide);
+          alert("游戏结束");
+          $(".block").html("");
+        } else {
+          countdown--;
+          if (score <= 10) {
+            timp(3000);
+          } else if (score <= 20 && score >= 10) {
+            timp(2000);
+          } else if (score <= 30 && score >= 20) {
+            timp(1000);
+          }
+        }
+        fun();
+        $("#head span").eq(0).html(countdown);
+      }, 1000);
+    }
+
+    //定时器
+    function timp(second) {
+      timer = setInterval(function () {
+        $(".block").html("");
+        arrive();
+      }, second);
+    }
+
+    $(".begin").click(function () {
+      $(".begin").css("pointer-events", "none");
+      arrive();
+    });
+
+    // 随机数
+    function arrive() {
+      for (var c = 0; c < 4; c++) {
+        var RandomNumber = Math.floor(Math.random() * 9);
+        if (arr.indexOf(RandomNumber) == -1) {
+          arr[c] = RandomNumber;
+        } else {
+          c--;
+        }
+      }
+      tuslice();
+    }
+    
+    //  循环图片
+    function tuslice() {
+      var tu = "";
+      arr.sort((a, b) => {
+        return a - b;
+      });
+
+      for (let i in arr) {
+        if (i < 2) {
+          $(".block")
+            .eq(arr[i])
+            .html(
+              `<img src="./mouse.png" alt="" class='slice' onclick="ClickScore(${i})">`
+            );
+        } else {
+          $(".block")
+            .eq(arr[i])
+            .html(
+              `<img src=./cat.png" alt="" class='slice' onclick="ClickScore(${i})">`
+            );
+        }
+      }
+    }
+
+    // 点击图片
+    function ClickScore(i) {
+      if (i < 2) {
+        score++;
+      } else {
+        score--;
+      }
+
+      $("#head span").eq(1).html(score);
+      $(".slice").eq(i).fadeOut();
+    }
+
+    //渲染到页面
+    var splicing = "";
+    for (var s = 0; s <= 8; s++) {
+      splicing += '<div class="block">';
+      splicing += "</div>";
+    }
+    $("#box").html(splicing);
+    </script>
+  </body>
+</html>
