@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <link rel="stylesheet" href="qq.css" />
+  </head>
+
+  <body>
+    <div class="box">
+      <div id="one">QQ音乐</div>
+
+      <div class="big">
+        <div class="content">
+          <div class="sund1">
+            <div class="neileft">
+              <div class="nav">
+                <ul class="nav1">
+                  <li>收藏</li>
+                  <li>添加到</li>
+                  <li>下载</li>
+                  <li>删除</li>
+                  <li onclick="rem">清空列表</li>
+                </ul>
+              </div>
+              <div class="cent">
+                <ul class="ul1">
+                  <li data-url="three.html" class="lll3">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="che"
+                    />&emsp;&emsp;歌曲
+                    <span
+                      >&emsp;歌手&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      时长</span
+                    >
+                  </li>
+                  <br />
+                  <li data-url="一千年以后.html" class="lll">
+                    <input type="checkbox" name="" class="che" />&emsp;&emsp;1
+                    一千年以后<span
+                      >林俊杰&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 04:07
+                    </span>
+                  </li>
+                  <br />
+                  <li data-url="不懂.html" class="lll">
+                    <input type="checkbox" name="" class="che" />&emsp;&emsp;2
+                    不懂<span
+                      >林俊杰&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      04:56</span
+                    >
+                  </li>
+                  <br />
+                  <li data-url="原来.html" class="lll">
+                    <input type="checkbox" name="" class="che" />&emsp;&emsp;3
+                    原&emsp;来<span>
+                      林俊杰&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      05:18</span
+                    >
+                  </li>
+                  <br />
+                  <li data-url="期待爱.html" class="lll">
+                    <input type="checkbox" name="" class="che" />&emsp;&emsp;4
+                    期待爱<span>
+                      林俊杰&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      05:18</span
+                    >
+                  </li>
+                  <br />
+                  <li data-url="背对背拥抱.html" class="lll">
+                    <input type="checkbox" name="" class="che" />&emsp;&emsp;5
+                    背对背拥抱
+                    <span
+                      >林俊杰
+                      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;04:07</span
+                    >
+                  </li>
+                  <br />
+                </ul>
+              </div>
+              <div id="ifaa">
+                <img
+                  src="左箭头.png"
+                  alt=""
+                  style="width: 50px; height: 50px"
+                  id="tu"
+                />
+                <img
+                  src="向右1.png"
+                  alt=""
+                  style="width: 50px; height: 50px"
+                  id="tu2"
+                />
+                <iframe
+                  src="一千年以后.html"
+                  frameborder="0"
+                  id="ifra"
+                ></iframe>
+              </div>
+            </div>
+            <div class="cright"><img src="林.png" alt="" /></div>
+          </div>
+        </div>
+      </div>
+      <div class="right"><span>登录</span>&emsp;|&emsp;<span>设置</span></div>
+    </div>
+    <script>
+      $(function () {
+        //给li点击事件
+        $(".lll").click(liFun);
+      });
+      function liFun() {
+        let url = $(this).attr("data-url");
+        $("#ifra").prop("src", url);
+      }
+    </script>
+  </body>
+</html>
